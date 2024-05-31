@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Top bar UI, add difficulty options select">
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717113289490</updated>
       <workItem from="1717113290542" duration="2002000" />
-      <workItem from="1717119346773" duration="2040000" />
+      <workItem from="1717119346773" duration="2788000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -122,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717121088139</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix parameterization issues with the code (thanks Intellij) and start actual game UI">
+      <option name="closed" value="true" />
+      <created>1717121961802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717121961802</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +140,7 @@
     <MESSAGE value="Renaming some things to correspond to project" />
     <MESSAGE value="Base styling format" />
     <MESSAGE value="Top bar UI, add difficulty options select" />
-    <option name="LAST_COMMIT_MESSAGE" value="Top bar UI, add difficulty options select" />
+    <MESSAGE value="Fix parameterization issues with the code (thanks Intellij) and start actual game UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix parameterization issues with the code (thanks Intellij) and start actual game UI" />
   </component>
 </project>

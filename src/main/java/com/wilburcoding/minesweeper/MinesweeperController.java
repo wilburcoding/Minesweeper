@@ -10,7 +10,7 @@ public class MinesweeperController {
     private Label mainText;
 
     @FXML
-    protected void onHelloButtonClick() {
+    protected void startButtonClick() {
         mainText.setText("Welcome to JavaFX Application!");
     }
 }

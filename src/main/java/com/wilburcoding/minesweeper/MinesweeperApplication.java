@@ -6,7 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-//import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +22,12 @@ public class MinesweeperApplication extends Application {
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
-//        VBox vbox = (VBox) scene.lookup("#mainGame");
+        VBox vbox = (VBox) scene.lookup("#mainGame");
+        HBox hbox = new HBox();
+        hbox.prefHeight(25);
+        hbox.prefWidth(500);
+        hbox.setStyle("-fx-background-color: #ff7272");
+        vbox.getChildren().add(hbox);
 
         stage.setTitle("Minesweeper");
         stage.setScene(scene);
