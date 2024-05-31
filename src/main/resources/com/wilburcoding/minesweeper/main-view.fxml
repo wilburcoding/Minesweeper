@@ -5,12 +5,17 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0" style="-fx-border-color: black" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.wilburcoding.minesweeper.MinesweeperController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+
+
+    <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="500.0" >
+        <Label fx:id="welcomeText"/>
+        <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    </HBox>
+    <VBox style="-fx-background-color: black" prefHeight="500.0" prefWidth="500.0">
+
+    </VBox>
 </VBox>
