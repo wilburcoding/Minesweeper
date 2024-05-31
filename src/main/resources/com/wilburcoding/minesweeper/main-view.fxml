@@ -21,7 +21,9 @@
         <Button onAction="#onHelloButtonClick" text="Start" />
 
     </HBox>
-    <VBox prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black">
+    <VBox prefHeight="500.0" prefWidth="500.0" fx:id="mainGame">
+        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="500.0">
 
+        </HBox>
     </VBox>
 </VBox>
