@@ -5,10 +5,10 @@ import javafx.scene.control.Label;
 
 public class MinesweeperController {
     @FXML
-    private Label welcomeText;
+    private Label mainText;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        mainText.setText("Welcome to JavaFX Application!");
     }
 }
