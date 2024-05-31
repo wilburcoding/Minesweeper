@@ -4,13 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: black" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wilburcoding.minesweeper.MinesweeperController">
+<VBox alignment="CENTER" style="-fx-border-color: black" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wilburcoding.minesweeper.MinesweeperController">
 
 
 
     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="500.0">
         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="250.0">
-            <Label fx:id="mainText" style="-fx-font-size: 20;" text="Minesweeper" />
+            <Label fx:id="mainText" style="-fx-font-size: 20;" text="Minesweeper">
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin></Label>
 
         </HBox>
       <ComboBox id="difficulty" prefWidth="150.0" promptText="Difficulty ">
@@ -21,9 +24,6 @@
         <Button onAction="#startButtonClick" text="Start" />
 
     </HBox>
-    <VBox prefHeight="500.0" prefWidth="500.0" fx:id="mainGame">
-        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="500.0">
-
-        </HBox>
+    <VBox fx:id="mainGame" alignment="BOTTOM_CENTER" style="-fx-border-color: red">
     </VBox>
 </VBox>
