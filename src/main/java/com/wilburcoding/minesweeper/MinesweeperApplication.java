@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -42,7 +43,7 @@ public class MinesweeperApplication extends Application {
                         button.setMaxHeight(25.0);
                         button.setMinWidth(25.0);
                         button.setId(i+","+j);
-                        button.setStyle("-fx-border-color: black");
+                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800");
                         hbox.getChildren().add(button);
 
 
@@ -53,8 +54,21 @@ public class MinesweeperApplication extends Application {
                 game.generateInitialBoard();
                 for (int i = 0; i < 20; i++) {
                     for (int j = 0; j < 20; j++) {
-                        Button button = (Button) scene.lookup("#" + i + "," + j);
+                        final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
+                        final int finalI = i;
+                        final int finalJ = j;
+                        EventHandler<MouseEvent> clickHandler = click -> {
+                            System.out.println(click.getButton());
+                            if (game.getBoard()[finalI][finalJ].isMine()) {
+                                System.out.println("rip");
+                            } else {
+                                game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
+                                button.setText(game.getBoard()[finalI][finalJ].toString());
+
+                            }
+                        };
+                        button.setOnMouseClicked(clickHandler);
                     }
                 }
 
