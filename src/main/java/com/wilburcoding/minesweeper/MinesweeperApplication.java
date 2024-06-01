@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -44,6 +46,7 @@ public class MinesweeperApplication extends Application {
                         button.setMinWidth(25.0);
                         button.setId(i+","+j);
                         button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800");
+
                         hbox.getChildren().add(button);
 
 
@@ -59,14 +62,22 @@ public class MinesweeperApplication extends Application {
                         final int finalI = i;
                         final int finalJ = j;
                         EventHandler<MouseEvent> clickHandler = click -> {
-                            System.out.println(click.getButton());
-                            if (game.getBoard()[finalI][finalJ].isMine()) {
-                                System.out.println("rip");
+                            if (click.getButton() == MouseButton.PRIMARY) {
+                                if (game.getBoard()[finalI][finalJ].isMine()) {
+                                    System.out.println("GGs");
+                                } else {
+                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
+                                    button.setText(game.getBoard()[finalI][finalJ].toString());
+                                    button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-text-fill: #6666ff");
+
+                                }
                             } else {
-                                game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
+                                game.getBoard()[finalI][finalJ].setState(MinesweeperState.FLAGGED);
                                 button.setText(game.getBoard()[finalI][finalJ].toString());
+                                button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-text-fill: #ff7366");
 
                             }
+
                         };
                         button.setOnMouseClicked(clickHandler);
                     }
