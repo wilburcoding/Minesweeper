@@ -27,6 +27,7 @@ public class MinesweeperApplication extends Application {
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
         Button start = (Button) scene.lookup("#startButton");
+        MinesweeperGame game = new MinesweeperGame();
         EventHandler<ActionEvent> playHandler = e1 -> {
             VBox mainGame = (VBox) scene.lookup("#mainGame");
 
@@ -40,6 +41,7 @@ public class MinesweeperApplication extends Application {
                         button.setText("\u200E");
                         button.setMaxHeight(25.0);
                         button.setMinWidth(25.0);
+                        button.setId(i+","+j);
                         button.setStyle("-fx-border-color: black");
                         hbox.getChildren().add(button);
 
@@ -48,6 +50,14 @@ public class MinesweeperApplication extends Application {
                     //Brutally learned that there has to be something inside the HBox for it to be shown
                     mainGame.getChildren().add(hbox);
                 }
+                game.generateInitialBoard();
+                for (int i = 0; i < 20; i++) {
+                    for (int j = 0; j < 20; j++) {
+                        Button button = (Button) scene.lookup("#" + i + "," + j);
+                        button.setText(game.getBoard()[i][j].toString());
+                    }
+                }
+
             });
         };
         start.setOnAction(playHandler);
