@@ -8,8 +8,8 @@
 
 
 
-    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="500.0">
-        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="250.0">
+    <HBox alignment="CENTER_LEFT" minHeight="100.0" prefWidth="500.0">
+        <HBox alignment="CENTER_LEFT" minHeight="100.0" prefWidth="250.0">
             <Label fx:id="mainText" style="-fx-font-size: 20;" text="Minesweeper">
             <HBox.margin>
                <Insets left="20.0" />
@@ -24,6 +24,6 @@
         <Button text="Start" fx:id="startButton" />
 
     </HBox>
-    <VBox fx:id="mainGame" alignment="BOTTOM_CENTER" style="-fx-border-color: red">
+    <VBox fx:id="mainGame" maxWidth="500.0" alignment="BOTTOM_CENTER" style="-fx-border-color: red">
     </VBox>
 </VBox>

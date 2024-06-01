@@ -21,7 +21,7 @@ public class MinesweeperApplication extends Application {
     @SuppressWarnings("unchecked")
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MinesweeperApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 550, 700);
         ComboBox<String> difficultyBox = (ComboBox<String>) scene.lookup("#difficulty");
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
                 "Easy", "Medium", "Hard");
@@ -37,9 +37,9 @@ public class MinesweeperApplication extends Application {
                     hbox.prefWidth(500.0);
                     for (int j = 0; j < 20; j++) {
                         Button button = new Button();
-                        button.setText("1");
-                        button.prefHeight(25.0);
-                        button.prefWidth(25.0);
+                        button.setText("\u200E");
+                        button.setMaxHeight(25.0);
+                        button.setMinWidth(25.0);
                         button.setStyle("-fx-border-color: black");
                         hbox.getChildren().add(button);
 
