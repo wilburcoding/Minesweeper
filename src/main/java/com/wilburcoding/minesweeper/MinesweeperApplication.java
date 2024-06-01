@@ -21,7 +21,7 @@ public class MinesweeperApplication extends Application {
     @SuppressWarnings("unchecked")
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MinesweeperApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 550, 700);
+        Scene scene = new Scene(fxmlLoader.load(), 550, 640);
         ComboBox<String> difficultyBox = (ComboBox<String>) scene.lookup("#difficulty");
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
                 "Easy", "Medium", "Hard");

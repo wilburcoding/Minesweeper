@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Asynchronously update UI to create game UI">
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Fix some styling for the UI to make it look much better">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +89,7 @@
       <updated>1717113289490</updated>
       <workItem from="1717113290542" duration="2002000" />
       <workItem from="1717119346773" duration="2788000" />
-      <workItem from="1717193524656" duration="2139000" />
+      <workItem from="1717193524656" duration="2866000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -153,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717204052075</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix some styling for the UI to make it look much better">
+      <option name="closed" value="true" />
+      <created>1717204426680</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717204426680</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +178,8 @@
     <MESSAGE value="Rename start button to be relevant to the project" />
     <MESSAGE value="Fix some styling and actually create game layout" />
     <MESSAGE value="Asynchronously update UI to create game UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Asynchronously update UI to create game UI" />
+    <MESSAGE value="Fix some styling for the UI to make it look much better" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some styling for the UI to make it look much better" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
