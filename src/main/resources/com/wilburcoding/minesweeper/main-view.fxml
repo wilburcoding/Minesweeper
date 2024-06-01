@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" style="-fx-border-color: black" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wilburcoding.minesweeper.MinesweeperController">
+<VBox alignment="TOP_CENTER" style="-fx-border-color: black" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wilburcoding.minesweeper.MinesweeperController">
 
 
 
@@ -21,7 +21,7 @@
             <Insets right="5.0" />
          </HBox.margin>
       </ComboBox>
-        <Button onAction="#startButtonClick" text="Start" />
+        <Button text="Start" fx:id="startButton" />
 
     </HBox>
     <VBox fx:id="mainGame" alignment="BOTTOM_CENTER" style="-fx-border-color: red">
