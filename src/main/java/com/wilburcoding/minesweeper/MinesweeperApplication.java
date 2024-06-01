@@ -45,7 +45,7 @@ public class MinesweeperApplication extends Application {
                         button.setMaxHeight(25.0);
                         button.setMinWidth(25.0);
                         button.setId(i+","+j);
-                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800");
+                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i+j)%2==0 ? "#8cff8c":"#68c668"));
 
                         hbox.getChildren().add(button);
 
