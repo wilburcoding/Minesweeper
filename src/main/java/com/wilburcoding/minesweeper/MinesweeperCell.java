@@ -2,8 +2,10 @@ package com.wilburcoding.minesweeper;
 
 public class MinesweeperCell {
     public MinesweeperState state;
+    public int countMines;
     public MinesweeperCell() {
         state = MinesweeperState.HIDDEN;
+        countMines = 0;
     }
 
     public MinesweeperState getState() {
@@ -13,4 +15,11 @@ public class MinesweeperCell {
         this.state = state;
     }
 
+    public void setCountMines(int countMines) {
+        this.countMines = countMines;
+    }
+
+    public int getCountMines() {
+        return countMines;
+    }
 }
