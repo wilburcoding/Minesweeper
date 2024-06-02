@@ -88,11 +88,17 @@ public class MinesweeperApplication extends Application {
                                     }
                                 }
                             } else {
-                                game.getBoard()[finalI][finalJ].setState(MinesweeperState.FLAGGED);
-                                button.setText(game.getBoard()[finalI][finalJ].toString());
-                                button.setTextFill(Color.valueOf("e53400"));
-                                button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
-
+                                if (game.getBoard()[finalI][finalJ].getState() == MinesweeperState.FLAGGED) {
+                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.HIDDEN);
+                                    button.setText(game.getBoard()[finalI][finalJ].toString());
+                                    button.setTextFill(Color.valueOf("e53400"));
+                                    button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+                                } else {
+                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.FLAGGED);
+                                    button.setText(game.getBoard()[finalI][finalJ].toString());
+                                    button.setTextFill(Color.valueOf("e53400"));
+                                    button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+                                }
 
 
                             }
