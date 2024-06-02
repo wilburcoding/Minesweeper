@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Add color for 8 mines">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Add ability to remove flags from flagged mines">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1717119346773" duration="2788000" />
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
-      <workItem from="1717356364013" duration="242000" />
+      <workItem from="1717356364013" duration="584000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -251,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717294952844</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add ability to remove flags from flagged mines">
+      <option name="closed" value="true" />
+      <created>1717356942280</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1717356942280</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +285,8 @@
     <MESSAGE value="Finish up styling issues and add numbering colors" />
     <MESSAGE value="Fix up more styling issues" />
     <MESSAGE value="Add color for 8 mines" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add color for 8 mines" />
+    <MESSAGE value="Add ability to remove flags from flagged mines" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ability to remove flags from flagged mines" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

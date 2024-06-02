@@ -30,7 +30,7 @@ public class MinesweeperGame {
                     if (board[j][k].getState() == MinesweeperState.FOUND) {
                         for (int l = 0; l < 3;l++) {
                             for (int m = 0; m < 3;m++) {
-                                if (Math.random() < 1/(Math.hypot(9.5-j, 9.5-k)+3.5)) {
+                                if (Math.random() < 1/(Math.hypot(9.5-j, 9.5-k)+3.1)) {
                                     board[j+1-l][k+1-m].setState(MinesweeperState.FOUND);
                                     coordsGen.add((j+1-l) + "," + (k+1-m));
                                 }
