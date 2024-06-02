@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MinesweeperApplication extends Application {
-    final String[] AMT_COLORS = {"#1976d2","#3a8e3d","#d33433","#7b1fa2","#fd9004","#0197a6","#424242"};
+    final String[] AMT_COLORS = {"#1976d2","#3a8e3d","#d33433","#7b1fa2","#fd9004","#0197a6","#424242","#D9D9D9"};
 
     @Override
     @SuppressWarnings("unchecked")
