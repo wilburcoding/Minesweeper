@@ -79,12 +79,28 @@ public class MinesweeperApplication extends Application {
                                 if (game.getBoard()[finalI][finalJ].isMine()) {
                                     System.out.println("GGs");
                                 } else {
-                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
-                                    button.setText(game.getBoard()[finalI][finalJ].toString());
-                                    button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#e5c29f" : "#d6b899"));
-                                    if (game.getBoard()[finalI][finalJ].getCountMines() > 0) {
-                                        button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[finalI][finalJ].getCountMines()-1]));
+                                    if (game.getBoard()[finalI][finalJ].getState() != MinesweeperState.FOUND) {
+                                        game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
+                                        if (game.getBoard()[finalI][finalJ].getCountMines() == 0) {
+                                            game.clearArea(finalI, finalJ);
+                                            //Refresh the board
+                                            for (int k = 0; k < 20; k++) {
+                                                for (int l = 0; l < 20; l++) {
+                                                    final Button buttonChange = (Button) scene.lookup("#" + k + "," + l);
+                                                    buttonChange.setText(game.getBoard()[k][l].toString());
+                                                    buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+                                                    if (game.getBoard()[k][l].state == MinesweeperState.FOUND) {
+                                                        buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        button.setText(game.getBoard()[finalI][finalJ].toString());
+                                        button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                                        if (game.getBoard()[finalI][finalJ].getCountMines() > 0) {
+                                            button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[finalI][finalJ].getCountMines() - 1]));
 
+                                        }
                                     }
                                 }
                             } else {

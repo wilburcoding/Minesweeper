@@ -101,5 +101,23 @@ public class MinesweeperGame {
             System.out.println();
         }
     }
+    public void clearArea(int x, int y) {
+        for (int l = 0; l < 3;l++) {
+            for (int m = 0; m < 3;m++) {
+                int xCoord = x+1-l;
+                int yCoord = y+1-m;
+                if (xCoord > 19 || xCoord < 0 || yCoord > 19 || yCoord < 0){
+                    continue;
+                }
+                if (board[xCoord][yCoord].getCountMines() == 0 && board[xCoord][yCoord].getState() == MinesweeperState.HIDDEN) {
+                    board[xCoord][yCoord].setState(MinesweeperState.FOUND);
+                    clearArea(xCoord, yCoord);
+                }
+                board[xCoord][yCoord].setState(MinesweeperState.FOUND);
+
+            }
+        }
+        
+    }
 
 }
