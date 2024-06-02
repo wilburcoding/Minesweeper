@@ -33,6 +33,7 @@ public class MinesweeperApplication extends Application {
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
         Button start = (Button) scene.lookup("#startButton");
+
         MinesweeperGame game = new MinesweeperGame();
         EventHandler<ActionEvent> playHandler = e1 -> {
             VBox mainGame = (VBox) scene.lookup("#mainGame");
@@ -59,6 +60,7 @@ public class MinesweeperApplication extends Application {
                     mainGame.getChildren().add(hbox);
                 }
                 game.generateInitialBoard();
+                game.clearArea(9,9);
                 for (int i = 0; i < 20; i++) {
                     for (int j = 0; j < 20; j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
@@ -75,47 +77,50 @@ public class MinesweeperApplication extends Application {
                         final int finalI = i;
                         final int finalJ = j;
                         EventHandler<MouseEvent> clickHandler = click -> {
+                            MinesweeperCell cell = game.getBoard()[finalI][finalJ];
                             if (click.getButton() == MouseButton.PRIMARY) {
-                                if (game.getBoard()[finalI][finalJ].isMine()) {
+                                if (cell.isMine()) {
                                     System.out.println("GGs");
                                 } else {
-                                    if (game.getBoard()[finalI][finalJ].getState() != MinesweeperState.FOUND) {
-                                        game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
-                                        if (game.getBoard()[finalI][finalJ].getCountMines() == 0) {
+                                    if (cell.getState() != MinesweeperState.FOUND) {
+                                        cell.setState(MinesweeperState.FOUND);
+                                        if (cell.getCountMines() == 0) {
                                             game.clearArea(finalI, finalJ);
                                             //Refresh the board
-                                            for (int k = 0; k < 20; k++) {
-                                                for (int l = 0; l < 20; l++) {
-                                                    final Button buttonChange = (Button) scene.lookup("#" + k + "," + l);
-                                                    buttonChange.setText(game.getBoard()[k][l].toString());
-                                                    buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
-                                                    if (game.getBoard()[k][l].state == MinesweeperState.FOUND) {
-                                                        buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#e5c29f" : "#d6b899"));
-                                                    }
-                                                }
-                                            }
+                                            refreshBoard(scene, game, baseStyle);
                                         }
-                                        button.setText(game.getBoard()[finalI][finalJ].toString());
+                                        button.setText(cell.toString());
                                         button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#e5c29f" : "#d6b899"));
-                                        if (game.getBoard()[finalI][finalJ].getCountMines() > 0) {
-                                            button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[finalI][finalJ].getCountMines() - 1]));
+                                        if (cell.getCountMines() > 0) {
+                                            button.setTextFill(Color.valueOf(AMT_COLORS[cell.getCountMines() - 1]));
 
                                         }
                                     }
                                 }
-                            } else {
-                                if (game.getBoard()[finalI][finalJ].getState() == MinesweeperState.FLAGGED) {
-                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.HIDDEN);
-                                } else {
-                                    game.getBoard()[finalI][finalJ].setState(MinesweeperState.FLAGGED);
+                            } else if (click.getButton() == MouseButton.SECONDARY) {
+                                if (cell.getState() != MinesweeperState.FOUND) {
+
+                                    if (cell.getState() == MinesweeperState.FLAGGED) {
+                                        cell.setState(MinesweeperState.HIDDEN);
+                                    } else {
+                                        cell.setState(MinesweeperState.FLAGGED);
+                                    }
+                                    button.setText(cell.toString());
+                                    button.setTextFill(Color.valueOf("e53400"));
+                                    button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                                 }
-                                button.setText(game.getBoard()[finalI][finalJ].toString());
-                                button.setTextFill(Color.valueOf("e53400"));
-                                button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
 
+                            } else if (click.getButton() == MouseButton.MIDDLE) {
+                                if (cell.getState() == MinesweeperState.FOUND) {
+                                    boolean result = game.speedClear(finalI, finalJ);
+                                    if (!result) {
+                                        refreshBoard(scene, game, baseStyle);
+                                    } else {
+                                        System.out.println("you lost");
+                                    }
 
+                                }
                             }
-
                         };
                         button.setOnMouseClicked(clickHandler);
                     }
@@ -128,6 +133,19 @@ public class MinesweeperApplication extends Application {
         stage.setTitle("Minesweeper");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void refreshBoard(Scene scene, MinesweeperGame game, String baseStyle) {
+        for (int k = 0; k < 20; k++) {
+            for (int l = 0; l < 20; l++) {
+                final Button buttonChange = (Button) scene.lookup("#" + k + "," + l);
+                buttonChange.setText(game.getBoard()[k][l].toString());
+                buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+                if (game.getBoard()[k][l].state == MinesweeperState.FOUND) {
+                    buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

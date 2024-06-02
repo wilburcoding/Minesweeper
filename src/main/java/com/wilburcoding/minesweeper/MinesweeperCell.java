@@ -33,6 +33,6 @@ public class MinesweeperCell {
         return mine;
     }
     public String toString() {
-        return (state==MinesweeperState.HIDDEN ? " " : (state==MinesweeperState.FLAGGED ? "X" : (countMines > 0 ? "" + countMines : " ")));
+        return (state==MinesweeperState.HIDDEN ? " " : (state==MinesweeperState.FLAGGED ? "\uD83D\uDEA9" : (countMines > 0 ? "" + countMines : " ")));
     }
 }
