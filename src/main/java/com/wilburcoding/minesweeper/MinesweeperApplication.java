@@ -15,11 +15,14 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MinesweeperApplication extends Application {
+    final String[] AMT_COLORS = {"#1976d2","#3a8e3d","#d33433","#7b1fa2","#fd9004","#0197a6","#424242"};
+
     @Override
     @SuppressWarnings("unchecked")
     public void start(Stage stage) throws IOException {
@@ -44,6 +47,7 @@ public class MinesweeperApplication extends Application {
                         button.setText("\u200E");
                         button.setMaxHeight(25.0);
                         button.setMinWidth(25.0);
+                        button.setMaxWidth(25.0);
                         button.setId(i+","+j);
                         button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i+j)%2==0 ? "#8cff8c":"#68c668"));
 
@@ -59,6 +63,15 @@ public class MinesweeperApplication extends Application {
                     for (int j = 0; j < 20; j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
+                        String baseStyle = "-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0     ;-fx-font-size: 12;-fx-font-weight: 800;";
+                        button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+                        if (game.getBoard()[i][j].state == MinesweeperState.FOUND) {
+                            button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                        }
+                        if (game.getBoard()[i][j].getCountMines() > 0) {
+                            button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[i][j].getCountMines()-1]));
+
+                        }
                         final int finalI = i;
                         final int finalJ = j;
                         EventHandler<MouseEvent> clickHandler = click -> {
@@ -68,13 +81,19 @@ public class MinesweeperApplication extends Application {
                                 } else {
                                     game.getBoard()[finalI][finalJ].setState(MinesweeperState.FOUND);
                                     button.setText(game.getBoard()[finalI][finalJ].toString());
-                                    button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-text-fill: #6666ff");
+                                    button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                                    if (game.getBoard()[finalI][finalJ].getCountMines() > 0) {
+                                        button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[finalI][finalJ].getCountMines()-1]));
 
+                                    }
                                 }
                             } else {
                                 game.getBoard()[finalI][finalJ].setState(MinesweeperState.FLAGGED);
                                 button.setText(game.getBoard()[finalI][finalJ].toString());
-                                button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-text-fill: #ff7366");
+                                button.setTextFill(Color.valueOf("e53400"));
+                                button.setStyle(baseStyle + "-fx-background-color: " + ((finalI + finalJ) % 2 == 0 ? "#a9d751" : "#a1cf48"));
+
+
 
                             }
 
