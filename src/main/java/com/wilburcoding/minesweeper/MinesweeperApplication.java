@@ -63,7 +63,7 @@ public class MinesweeperApplication extends Application {
                     for (int j = 0; j < 20; j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
-                        String baseStyle = "-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0     ;-fx-font-size: 12;-fx-font-weight: 800;";
+                        String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: 18;-fx-font-weight: 900;";
                         button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                         if (game.getBoard()[i][j].state == MinesweeperState.FOUND) {
                             button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#e5c29f" : "#d6b899"));

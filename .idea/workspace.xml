@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Add more styling and finalize initial generation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Finish up styling issues and add numbering colors">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperCell.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +96,7 @@
       <workItem from="1717113290542" duration="2002000" />
       <workItem from="1717119346773" duration="2788000" />
       <workItem from="1717193524656" duration="4798000" />
-      <workItem from="1717270306093" duration="6739000" />
+      <workItem from="1717270306093" duration="7044000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -228,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717281113981</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Finish up styling issues and add numbering colors">
+      <option name="closed" value="true" />
+      <created>1717294397021</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717294397021</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +257,8 @@
     <MESSAGE value="Add event handlers to cells" />
     <MESSAGE value="Some coloring and more cell clicked functionality" />
     <MESSAGE value="Add more styling and finalize initial generation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add more styling and finalize initial generation" />
+    <MESSAGE value="Finish up styling issues and add numbering colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish up styling issues and add numbering colors" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
