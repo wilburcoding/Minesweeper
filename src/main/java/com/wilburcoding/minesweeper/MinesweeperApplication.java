@@ -37,13 +37,15 @@ public class MinesweeperApplication extends Application {
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
+        difficultyBox.setValue("Medium");
         Button start = (Button) scene.lookup("#startButton");
         Label mainLabel = (Label) scene.lookup("#infoText");
         MinesweeperGame game = new MinesweeperGame(5);
+
         Timeline updateT = new Timeline(
                 new KeyFrame(Duration.seconds(1),
                         event -> {
-                            if (game.getMineCount() == 0) {
+                            if (game.isGameOngoing()) {
                                 int minutes = seconds / 60;
                                 int sec = seconds % 60;
                                 mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
@@ -58,7 +60,18 @@ public class MinesweeperApplication extends Application {
 
             Platform.runLater(() -> {
                 mainLabel.setText("Loading...");
-                game.setBoard(5);
+                String value = difficultyBox.getValue();
+                if (value.equals("Hard")) {
+                    game.setBoard(20);
+
+                } else if (value.equals("Easy")) {
+                    game.setBoard(10);
+
+                } else {
+                    game.setBoard(15);
+
+                }
+
                 for (int i = 0; i < 20; i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(25.0);

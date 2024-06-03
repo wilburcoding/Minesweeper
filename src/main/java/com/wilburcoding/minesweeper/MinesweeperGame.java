@@ -227,4 +227,8 @@ public class MinesweeperGame {
     public int getSize() {
         return size;
     }
+
+    public boolean isGameOngoing() {
+        return gameOngoing;
+    }
 }
