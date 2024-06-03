@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -50,6 +49,9 @@ public class MinesweeperApplication extends Application {
                                 int sec = seconds % 60;
                                 mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
                                 seconds++;
+                                if (game.checkWin()) {
+                                    game.setGameOngoing(false);
+                                }
 
                             }
                         }));
@@ -73,7 +75,7 @@ public class MinesweeperApplication extends Application {
                     game.setBoard(15);
                     fontsize = 25;
                 }
-
+                seconds = 0;
                 for (int i = 0; i < game.getSize(); i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(500.0 / game.getSize());

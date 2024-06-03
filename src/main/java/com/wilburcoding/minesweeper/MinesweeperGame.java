@@ -28,14 +28,14 @@ public class MinesweeperGame {
         return board;
     }
     public String toString() {
-        String str = "";
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                str += board[i][j].toString();
+        StringBuilder str = new StringBuilder();
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (MinesweeperCell minesweeperCell : minesweeperCells) {
+                str.append(minesweeperCell.toString());
             }
-            str += "\n";
+            str.append("\n");
         }
-        return str;
+        return str.toString();
 
     }
 
@@ -73,11 +73,11 @@ public class MinesweeperGame {
                 }
             }
         }
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j].getState() == MinesweeperState.HIDDEN) {
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (MinesweeperCell minesweeperCell : minesweeperCells) {
+                if (minesweeperCell.getState() == MinesweeperState.HIDDEN) {
                     if (Math.random() < 0.19) {
-                        board[i][j].setMine(true);
+                        minesweeperCell.setMine(true);
                     }
                 }
             }
@@ -140,13 +140,13 @@ public class MinesweeperGame {
                 }
             }
         }
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j].isMine()) {
-                    board[i][j].setState(MinesweeperState.HIDDEN);
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (MinesweeperCell minesweeperCell : minesweeperCells) {
+                if (minesweeperCell.isMine()) {
+                    minesweeperCell.setState(MinesweeperState.HIDDEN);
 
                 }
-                System.out.print(board[i][j] + " ");
+                System.out.print(minesweeperCell + " ");
             }
             System.out.println();
         }
@@ -225,9 +225,9 @@ public class MinesweeperGame {
 
     public int getMineLeft() {
         int minesLeft = mineCount;
-        for (int i = 0; i < board.length;i++) {
-            for (int j = 0; j < board[i].length;j++) {
-                if (board[i][j].getState() == MinesweeperState.FLAGGED) {
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (MinesweeperCell minesweeperCell : minesweeperCells) {
+                if (minesweeperCell.getState() == MinesweeperState.FLAGGED) {
                     minesLeft--;
                 }
             }
@@ -240,5 +240,20 @@ public class MinesweeperGame {
 
     public boolean isGameOngoing() {
         return gameOngoing;
+    }
+
+    public void setGameOngoing(boolean gameOngoing) {
+        this.gameOngoing = gameOngoing;
+    }
+
+    public boolean checkWin() {
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (MinesweeperCell minesweeperCell : minesweeperCells) {
+                if (minesweeperCell.isMine() && minesweeperCell.getState() != MinesweeperState.FLAGGED) {
+                    return false;
+                }
+            }
+        }
+        return getMineLeft() == 0;
     }
 }

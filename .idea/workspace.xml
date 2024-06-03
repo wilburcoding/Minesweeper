@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Finish adding difficulty functionality to the game">
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Adjust font size based on cell size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" afterDir="false" />
@@ -50,7 +50,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -113,7 +113,7 @@
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
       <workItem from="1717356364013" duration="13433000" />
-      <workItem from="1717446044084" duration="2320000" />
+      <workItem from="1717446044084" duration="3052000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -347,14 +347,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717447526521</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Adjust font size based on cell size">
+      <option name="closed" value="true" />
+      <created>1717452638695</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1717452638695</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix parameterization issues with the code (thanks Intellij) and start actual game UI" />
     <MESSAGE value="Rename start button to be relevant to the project" />
     <MESSAGE value="Fix some styling and actually create game layout" />
     <MESSAGE value="Asynchronously update UI to create game UI" />
@@ -379,7 +386,8 @@
     <MESSAGE value="Incorporate different board sizes into main game application -&gt; not complete" />
     <MESSAGE value="Add default value for difficulty selection + incorporate more alternate size elements" />
     <MESSAGE value="Finish adding difficulty functionality to the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish adding difficulty functionality to the game" />
+    <MESSAGE value="Adjust font size based on cell size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjust font size based on cell size" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
