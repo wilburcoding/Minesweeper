@@ -39,11 +39,11 @@ public class MinesweeperApplication extends Application {
         difficultyBox.setItems(difficultyList);
         Button start = (Button) scene.lookup("#startButton");
         Label mainLabel = (Label) scene.lookup("#infoText");
-        MinesweeperGame game = new MinesweeperGame(20);
+        MinesweeperGame game = new MinesweeperGame(5);
         Timeline updateT = new Timeline(
                 new KeyFrame(Duration.seconds(1),
                         event -> {
-                            if (game.getMineCount() != 0) {
+                            if (game.getMineCount() == 0) {
                                 int minutes = seconds / 60;
                                 int sec = seconds % 60;
                                 mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
@@ -58,7 +58,7 @@ public class MinesweeperApplication extends Application {
 
             Platform.runLater(() -> {
                 mainLabel.setText("Loading...");
-
+                game.setBoard(5);
                 for (int i = 0; i < 20; i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(25.0);

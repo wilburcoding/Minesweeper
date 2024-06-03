@@ -6,17 +6,24 @@ public class MinesweeperGame {
     private MinesweeperCell[][] board;
     private int mineCount;
     private int size;
-
+    private boolean gameOngoing;
     public MinesweeperGame(int size) {
         board = new MinesweeperCell[size][size];
         mineCount = 0;
         this.size = size;
+        gameOngoing = false;
     }
 
     public int getMineCount() {
         return mineCount;
     }
+    public void setBoard(int size) {
+        board = new MinesweeperCell[size][size];
+        mineCount = 0;
+        this.size = size;
+        gameOngoing = false;
 
+    }
     public MinesweeperCell[][] getBoard() {
         return board;
     }
@@ -33,6 +40,7 @@ public class MinesweeperGame {
     }
 
     public void generateInitialBoard() {
+        gameOngoing = true;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 board[i][j] = new MinesweeperCell();
