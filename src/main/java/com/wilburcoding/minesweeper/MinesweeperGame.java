@@ -58,6 +58,11 @@ public class MinesweeperGame {
                     if (board[j][k].getState() == MinesweeperState.FOUND) {
                         for (int l = 0; l < 3; l++) {
                             for (int m = 0; m < 3; m++) {
+                                int xcoord = j + 1 - l;
+                                int ycoord = k + 1 - m;
+                                if (xcoord > board.length-1 || xcoord < 0 || ycoord > board.length-1 || ycoord < 0) {
+                                    continue;
+                                }
                                 if (Math.random() < 1 / (Math.hypot(9.5 - j, 9.5 - k) + 3.1)) {
                                     board[j + 1 - l][k + 1 - m].setState(MinesweeperState.FOUND);
                                     coordsGen.add((j + 1 - l) + "," + (k + 1 - m));
@@ -82,7 +87,12 @@ public class MinesweeperGame {
             int y = Integer.parseInt(item.split(",")[1]);
             for (int l = 0; l < 3; l++) {
                 for (int m = 0; m < 3; m++) {
-                    if (board[x + 1 - l][y + 1 - m].getState() == MinesweeperState.HIDDEN && Math.random() < 0.21) {
+                    int xcoord = x + 1 - l;
+                    int ycoord = y + 1 - m;
+                    if (xcoord > board.length-1 || xcoord < 0 || ycoord > board.length-1 || ycoord < 0) {
+                        continue;
+                    }
+                    if (board[x + 1 - l][y + 1 - m].getState() == MinesweeperState.HIDDEN && Math.random() < 0.10) {
                         board[x + 1 - l][y + 1 - m].setMine(true);
                     }
 

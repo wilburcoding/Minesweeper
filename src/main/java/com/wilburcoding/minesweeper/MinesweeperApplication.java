@@ -61,15 +61,17 @@ public class MinesweeperApplication extends Application {
             Platform.runLater(() -> {
                 mainLabel.setText("Loading...");
                 String value = difficultyBox.getValue();
+                int fontsize = 18;
                 if (value.equals("Hard")) {
                     game.setBoard(20);
 
                 } else if (value.equals("Easy")) {
                     game.setBoard(10);
+                    fontsize = 35;
 
                 } else {
                     game.setBoard(15);
-
+                    fontsize = 25;
                 }
 
                 for (int i = 0; i < game.getSize(); i++) {
@@ -83,7 +85,7 @@ public class MinesweeperApplication extends Application {
                         button.setMinWidth(500.0 / game.getSize());
                         button.setMaxWidth(500.0 / game.getSize());
                         button.setId(i + "," + j);
-                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i + j) % 2 == 0 ? "#8cff8c" : "#68c668"));
+                        button.setStyle("-fx-border-color: black;-fx-font-size: " + fontsize + ";-fx-font-weight: 800;-fx-background-color: " + ((i + j) % 2 == 0 ? "#8cff8c" : "#68c668"));
 
                         hbox.getChildren().add(button);
 
@@ -99,7 +101,7 @@ public class MinesweeperApplication extends Application {
                     for (int j = 0; j < game.getSize(); j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
-                        String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: 18;-fx-font-weight: 900;";
+                        String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: " + fontsize + ";-fx-font-weight: 900;";
                         button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                         if (game.getBoard()[i][j].getState() == MinesweeperState.FOUND) {
                             button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#e5c29f" : "#d6b899"));
