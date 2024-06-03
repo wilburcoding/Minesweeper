@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class MinesweeperGame {
     private MinesweeperCell[][] board;
     private int mineCount;
-    private int mineLeft;
+    private int size;
 
-    public MinesweeperGame() {
-        board = new MinesweeperCell[20][20];
+    public MinesweeperGame(int size) {
+        board = new MinesweeperCell[size][size];
         mineCount = 0;
-        mineLeft = 0;
+        this.size = size;
     }
 
     public int getMineCount() {
@@ -22,8 +22,8 @@ public class MinesweeperGame {
     }
     public String toString() {
         String str = "";
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
                 str += board[i][j].toString();
             }
             str += "\n";
@@ -40,7 +40,7 @@ public class MinesweeperGame {
         }
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                board[i + 9][j + 9].setState(MinesweeperState.FOUND);
+                board[i + (board.length)/2 - 1][j + (board.length)/2 - 1].setState(MinesweeperState.FOUND);
             }
         }
         ArrayList<String> coordsGen = new ArrayList<>();
@@ -90,7 +90,7 @@ public class MinesweeperGame {
                         for (int m = 0; m < 3; m++) {
                             int xcoord = i + 1 - l;
                             int ycoord = j + 1 - m;
-                            if (xcoord > 19 || xcoord < 0 || ycoord > 19 || ycoord < 0) {
+                            if (xcoord > board.length-1 || xcoord < 0 || ycoord > board.length-1 || ycoord < 0) {
                                 continue;
                             }
                             if (board[xcoord][ycoord].isMine()) {
@@ -104,7 +104,7 @@ public class MinesweeperGame {
                             for (int m = 0; m < 3; m++) {
                                 int xcoord = i + 1 - l;
                                 int ycoord = j + 1 - m;
-                                if (xcoord > 19 || xcoord < 0 || ycoord > 19 || ycoord < 0) {
+                                if (xcoord > board.length-1 || xcoord < 0 || ycoord > board.length-1 || ycoord < 0) {
                                     continue;
                                 }
                                 if (!board[xcoord][ycoord].isMine()) {
@@ -139,7 +139,7 @@ public class MinesweeperGame {
             for (int m = 0; m < 3; m++) {
                 int xCoord = x + 1 - l;
                 int yCoord = y + 1 - m;
-                if (xCoord > 19 || xCoord < 0 || yCoord > 19 || yCoord < 0) {
+                if (xCoord > board.length-1 || xCoord < 0 || yCoord > board.length-1 || yCoord < 0) {
                     continue;
                 }
                 if (board[xCoord][yCoord].getCountMines() == 0 && board[xCoord][yCoord].getState() == MinesweeperState.HIDDEN && !board[xCoord][yCoord].isMine()) {
@@ -163,7 +163,7 @@ public class MinesweeperGame {
             for (int m = 0; m < 3; m++) {
                 int xCoord = x + 1 - l;
                 int yCoord = y + 1 - m;
-                if (xCoord > 19 || xCoord < 0 || yCoord > 19 || yCoord < 0) {
+                if (xCoord > board.length-1 || xCoord < 0 || yCoord > board.length-1 || yCoord < 0) {
                     continue;
                 }
                 if (board[xCoord][yCoord].getState() == MinesweeperState.FLAGGED) {
@@ -179,7 +179,7 @@ public class MinesweeperGame {
             for (int m = 0; m < 3; m++) {
                 int xCoord = x + 1 - l;
                 int yCoord = y + 1 - m;
-                if (xCoord > 19 || xCoord < 0 || yCoord > 19 || yCoord < 0) {
+                if (xCoord > board.length-1 || xCoord < 0 || yCoord > board.length-1 || yCoord < 0) {
                     continue;
                 }
                 if (board[xCoord][yCoord].getState() != MinesweeperState.FLAGGED && board[xCoord][yCoord].isMine()) {
@@ -215,5 +215,8 @@ public class MinesweeperGame {
             }
         }
         return minesLeft;
+    }
+    public int getSize() {
+        return size;
     }
 }

@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Fix tons of bugs + finish actual game functionality for the most part">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Add more info text functionality + fix some more bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,32 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Minesweeper.executor": "Run",
-    "Application.MinesweeperApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/wilbu/Downloads",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Minesweeper.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MinesweeperApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilbu/Downloads&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38319907&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Minesweeper" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.wilburcoding.minesweeper.MinesweeperApplication" />
       <module name="Minesweeper" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path C:\Users\wilbu\Downloads\openjfx-22.0.1_windows-x64_bin-sdk --add-modules=javafx.controls" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,7 +111,8 @@
       <workItem from="1717119346773" duration="2788000" />
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
-      <workItem from="1717356364013" duration="10408000" />
+      <workItem from="1717356364013" duration="13433000" />
+      <workItem from="1717446044084" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -308,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717365098651</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add more info text functionality + fix some more bugs">
+      <option name="closed" value="true" />
+      <created>1717374900056</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1717374900056</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +345,8 @@
     <MESSAGE value="Optimize code for flagging or unflagging mines" />
     <MESSAGE value="Add large area clearing for empty areas" />
     <MESSAGE value="Fix tons of bugs + finish actual game functionality for the most part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix tons of bugs + finish actual game functionality for the most part" />
+    <MESSAGE value="Add more info text functionality + fix some more bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add more info text functionality + fix some more bugs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

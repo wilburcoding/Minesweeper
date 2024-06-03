@@ -39,7 +39,7 @@ public class MinesweeperApplication extends Application {
         difficultyBox.setItems(difficultyList);
         Button start = (Button) scene.lookup("#startButton");
         Label mainLabel = (Label) scene.lookup("#infoText");
-        MinesweeperGame game = new MinesweeperGame();
+        MinesweeperGame game = new MinesweeperGame(20);
         Timeline updateT = new Timeline(
                 new KeyFrame(Duration.seconds(1),
                         event -> {
