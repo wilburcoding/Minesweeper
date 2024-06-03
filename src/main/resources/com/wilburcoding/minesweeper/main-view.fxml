@@ -16,7 +16,7 @@
                         <Insets left="20.0"/>
                     </VBox.margin>
                 </Label>
-                <Label fx:id="infoText" style="-fx-font-size: 15" text="Loading...">
+                <Label id="infoText" style="-fx-font-size: 15" text="">
                     <VBox.margin>
                         <Insets left="20.0"/>
                     </VBox.margin>

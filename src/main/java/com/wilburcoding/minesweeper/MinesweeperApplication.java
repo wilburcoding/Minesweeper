@@ -1,5 +1,7 @@
 package com.wilburcoding.minesweeper;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -10,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -17,11 +20,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class MinesweeperApplication extends Application {
-    final String[] AMT_COLORS = {"#1976d2","#3a8e3d","#d33433","#7b1fa2","#fd9004","#0197a6","#424242","#D9D9D9"};
+    final String[] AMT_COLORS = {"#1976d2", "#3a8e3d", "#d33433", "#7b1fa2", "#fd9004", "#0197a6", "#424242", "#D9D9D9"};
+    public int seconds = 1;
 
     @Override
     @SuppressWarnings("unchecked")
@@ -33,12 +38,27 @@ public class MinesweeperApplication extends Application {
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
         Button start = (Button) scene.lookup("#startButton");
-
+        Label mainLabel = (Label) scene.lookup("#infoText");
         MinesweeperGame game = new MinesweeperGame();
+        Timeline updateT = new Timeline(
+                new KeyFrame(Duration.seconds(1),
+                        event -> {
+                            if (game.getMineCount() != 0) {
+                                int minutes = seconds / 60;
+                                int sec = seconds % 60;
+                                mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
+                                seconds++;
+
+                            }
+                        }));
+        updateT.setCycleCount(Timeline.INDEFINITE);
+        updateT.play();
         EventHandler<ActionEvent> playHandler = e1 -> {
             VBox mainGame = (VBox) scene.lookup("#mainGame");
 
             Platform.runLater(() -> {
+                mainLabel.setText("Loading...");
+
                 for (int i = 0; i < 20; i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(25.0);
@@ -49,8 +69,8 @@ public class MinesweeperApplication extends Application {
                         button.setMaxHeight(25.0);
                         button.setMinWidth(25.0);
                         button.setMaxWidth(25.0);
-                        button.setId(i+","+j);
-                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i+j)%2==0 ? "#8cff8c":"#68c668"));
+                        button.setId(i + "," + j);
+                        button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i + j) % 2 == 0 ? "#8cff8c" : "#68c668"));
 
                         hbox.getChildren().add(button);
 
@@ -60,18 +80,19 @@ public class MinesweeperApplication extends Application {
                     mainGame.getChildren().add(hbox);
                 }
                 game.generateInitialBoard();
-                game.clearArea(9,9);
+                game.clearArea(9, 9);
+                mainLabel.setText("0.00 - " + game.getMineCount() + " flags left");
                 for (int i = 0; i < 20; i++) {
                     for (int j = 0; j < 20; j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
                         String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: 18;-fx-font-weight: 900;";
                         button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#a9d751" : "#a1cf48"));
-                        if (game.getBoard()[i][j].state == MinesweeperState.FOUND) {
+                        if (game.getBoard()[i][j].getState() == MinesweeperState.FOUND) {
                             button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#e5c29f" : "#d6b899"));
                         }
                         if (game.getBoard()[i][j].getCountMines() > 0) {
-                            button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[i][j].getCountMines()-1]));
+                            button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[i][j].getCountMines() - 1]));
 
                         }
                         final int finalI = i;

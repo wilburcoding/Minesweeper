@@ -4,9 +4,17 @@ import java.util.ArrayList;
 
 public class MinesweeperGame {
     private MinesweeperCell[][] board;
+    private int mineCount;
+    private int mineLeft;
 
     public MinesweeperGame() {
         board = new MinesweeperCell[20][20];
+        mineCount = 0;
+        mineLeft = 0;
+    }
+
+    public int getMineCount() {
+        return mineCount;
     }
 
     public MinesweeperCell[][] getBoard() {
@@ -99,7 +107,7 @@ public class MinesweeperGame {
                                 if (xcoord > 19 || xcoord < 0 || ycoord > 19 || ycoord < 0) {
                                     continue;
                                 }
-                                if (board[xcoord][ycoord].isMine()) {
+                                if (!board[xcoord][ycoord].isMine()) {
                                     board[xcoord][ycoord].setState(MinesweeperState.FOUND);
                                 } else {
                                     board[xcoord][ycoord].setState(MinesweeperState.HIDDEN);
@@ -108,6 +116,7 @@ public class MinesweeperGame {
                         }
                     }
                 } else {
+                    mineCount++;
                     board[i][j].setState(MinesweeperState.HIDDEN);
 
                 }
@@ -115,6 +124,10 @@ public class MinesweeperGame {
         }
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j].isMine()) {
+                    board[i][j].setState(MinesweeperState.HIDDEN);
+
+                }
                 System.out.print(board[i][j] + " ");
             }
             System.out.println();
@@ -133,7 +146,10 @@ public class MinesweeperGame {
                     board[xCoord][yCoord].setState(MinesweeperState.FOUND);
                     clearArea(xCoord, yCoord);
                 }
-                board[xCoord][yCoord].setState(MinesweeperState.FOUND);
+                if (!board[xCoord][yCoord].isMine()) {
+                    board[xCoord][yCoord].setState(MinesweeperState.FOUND);
+
+                }
 
             }
         }
@@ -189,4 +205,15 @@ public class MinesweeperGame {
 
     }
 
+    public int getMineLeft() {
+        int minesLeft = mineCount;
+        for (int i = 0; i < board.length;i++) {
+            for (int j = 0; j < board[i].length;j++) {
+                if (board[i][j].getState() == MinesweeperState.FLAGGED) {
+                    minesLeft--;
+                }
+            }
+        }
+        return minesLeft;
+    }
 }
