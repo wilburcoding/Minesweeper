@@ -50,6 +50,7 @@ public class MinesweeperApplication extends Application {
                                 mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
                                 seconds++;
                                 if (game.checkWin()) {
+                                    start.setDisable(false);
                                     game.setGameOngoing(false);
                                 }
 
@@ -76,6 +77,7 @@ public class MinesweeperApplication extends Application {
                     fontsize = 25;
                 }
                 seconds = 0;
+                start.setDisable(true);
                 for (int i = 0; i < game.getSize(); i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(500.0 / game.getSize());
