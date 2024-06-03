@@ -72,16 +72,16 @@ public class MinesweeperApplication extends Application {
 
                 }
 
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < game.getSize(); i++) {
                     HBox hbox = new HBox();
-                    hbox.prefHeight(25.0);
+                    hbox.prefHeight(500.0 / game.getSize());
                     hbox.prefWidth(500.0);
-                    for (int j = 0; j < 20; j++) {
+                    for (int j = 0; j < game.getSize(); j++) {
                         Button button = new Button();
                         button.setText("\u200E");
-                        button.setMaxHeight(25.0);
-                        button.setMinWidth(25.0);
-                        button.setMaxWidth(25.0);
+                        button.setMinHeight(500.0 / game.getSize());
+                        button.setMinWidth(500.0 / game.getSize());
+                        button.setMaxWidth(500.0 / game.getSize());
                         button.setId(i + "," + j);
                         button.setStyle("-fx-border-color: black;-fx-font-size: 10;-fx-font-weight: 800;-fx-background-color: " + ((i + j) % 2 == 0 ? "#8cff8c" : "#68c668"));
 
@@ -93,10 +93,10 @@ public class MinesweeperApplication extends Application {
                     mainGame.getChildren().add(hbox);
                 }
                 game.generateInitialBoard();
-                game.clearArea(9, 9);
+                game.clearArea(game.getSize()/2 - 1,  game.getSize()/2 - 1);
                 mainLabel.setText("0.00 - " + game.getMineCount() + " flags left");
-                for (int i = 0; i < 20; i++) {
-                    for (int j = 0; j < 20; j++) {
+                for (int i = 0; i < game.getSize(); i++) {
+                    for (int j = 0; j < game.getSize(); j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
                         String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: 18;-fx-font-weight: 900;";
@@ -170,8 +170,8 @@ public class MinesweeperApplication extends Application {
     }
 
     private void refreshBoard(Scene scene, MinesweeperGame game, String baseStyle) {
-        for (int k = 0; k < 20; k++) {
-            for (int l = 0; l < 20; l++) {
+        for (int k = 0; k < game.getSize(); k++) {
+            for (int l = 0; l < game.getSize(); l++) {
                 final Button buttonChange = (Button) scene.lookup("#" + k + "," + l);
                 buttonChange.setText(game.getBoard()[k][l].toString());
                 buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
