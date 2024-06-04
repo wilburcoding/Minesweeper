@@ -27,6 +27,7 @@ public class MinesweeperApplication extends Application {
     final String[] AMT_COLORS = {"#1976d2", "#3a8e3d", "#d33433", "#7b1fa2", "#fd9004", "#0197a6", "#424242", "#D9D9D9"};
     private double seconds = 1;
     private String baseStyle = "";
+    private Button start;
 
 
     @Override
@@ -40,7 +41,7 @@ public class MinesweeperApplication extends Application {
                 "Easy", "Medium", "Hard");
         difficultyBox.setItems(difficultyList);
         difficultyBox.setValue("Medium");
-        Button start = (Button) scene.lookup("#startButton");
+        start = (Button) scene.lookup("#startButton");
         Label mainLabel = (Label) scene.lookup("#infoText");
         MinesweeperGame game = new MinesweeperGame(5);
 
@@ -214,6 +215,7 @@ public class MinesweeperApplication extends Application {
         int sec = (int) seconds % 60;
         mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left - " + game.getResult());
         game.fillBoard();
+        start.setDisable(false);
         refreshBoard(scene, game, baseStyle);
 
     }
