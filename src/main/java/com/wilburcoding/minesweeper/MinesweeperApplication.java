@@ -34,6 +34,7 @@ public class MinesweeperApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MinesweeperApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 550, 640);
+        stage.setResizable(false);
         ComboBox<String> difficultyBox = (ComboBox<String>) scene.lookup("#difficulty");
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
                 "Easy", "Medium", "Hard");
@@ -82,6 +83,7 @@ public class MinesweeperApplication extends Application {
                 }
                 seconds = 0;
                 start.setDisable(true);
+                mainGame.getChildren().clear();
                 for (int i = 0; i < game.getSize(); i++) {
                     HBox hbox = new HBox();
                     hbox.prefHeight(500.0 / game.getSize());

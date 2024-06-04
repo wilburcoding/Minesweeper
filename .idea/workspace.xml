@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="More detailed information at the end of game, disable functionality at game end">
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Flag all mines upon game loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
       <workItem from="1717356364013" duration="13433000" />
-      <workItem from="1717446044084" duration="3702000" />
+      <workItem from="1717446044084" duration="4166000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -387,14 +385,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717459711800</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Flag all mines upon game loss">
+      <option name="closed" value="true" />
+      <created>1717460301022</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1717460301022</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create base for game classes" />
     <MESSAGE value="Add additional methods for the cell class" />
     <MESSAGE value="More game functionality + starting initial board generation method" />
     <MESSAGE value="Finish initial board generation" />
@@ -419,7 +424,8 @@
     <MESSAGE value="Disable start button during ongoing games" />
     <MESSAGE value="Remove redundant text attribute in the main-view.fxml" />
     <MESSAGE value="More detailed information at the end of game, disable functionality at game end" />
-    <option name="LAST_COMMIT_MESSAGE" value="More detailed information at the end of game, disable functionality at game end" />
+    <MESSAGE value="Flag all mines upon game loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flag all mines upon game loss" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
