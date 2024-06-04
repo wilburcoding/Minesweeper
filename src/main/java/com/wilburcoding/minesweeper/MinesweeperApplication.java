@@ -25,7 +25,7 @@ import java.io.IOException;
 
 public class MinesweeperApplication extends Application {
     final String[] AMT_COLORS = {"#1976d2", "#3a8e3d", "#d33433", "#7b1fa2", "#fd9004", "#0197a6", "#424242", "#D9D9D9"};
-    public int seconds = 1;
+    public double seconds = 1;
 
     @Override
     @SuppressWarnings("unchecked")
@@ -42,16 +42,18 @@ public class MinesweeperApplication extends Application {
         MinesweeperGame game = new MinesweeperGame(5);
 
         Timeline updateT = new Timeline(
-                new KeyFrame(Duration.seconds(1),
+                new KeyFrame(Duration.millis(200),
                         event -> {
                             if (game.isGameOngoing()) {
-                                int minutes = seconds / 60;
-                                int sec = seconds % 60;
+                                int minutes = (int)seconds / 60;
+                                int sec = (int)seconds % 60;
                                 mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left");
-                                seconds++;
+                                seconds+=0.2;
                                 if (game.checkWin()) {
                                     start.setDisable(false);
                                     game.setGameOngoing(false);
+                                    finishMessage(game, mainLabel);
+
                                 }
 
                             }
@@ -117,10 +119,22 @@ public class MinesweeperApplication extends Application {
                         final int finalI = i;
                         final int finalJ = j;
                         EventHandler<MouseEvent> clickHandler = click -> {
+                            if (!game.isGameOngoing()) {
+                                return;
+                            }
                             MinesweeperCell cell = game.getBoard()[finalI][finalJ];
+                            if (game.checkWin()) {
+                                game.setGameOngoing(false);
+                                game.setResult("Win");
+                                finishMessage(game, mainLabel);
+
+                            }
                             if (click.getButton() == MouseButton.PRIMARY) {
                                 if (cell.isMine()) {
-                                    System.out.println("GGs");
+                                    game.setGameOngoing(false);
+                                    game.setResult("Loss");
+                                    finishMessage(game, mainLabel);
+
                                 } else {
                                     if (cell.getState() != MinesweeperState.FOUND) {
                                         cell.setState(MinesweeperState.FOUND);
@@ -156,7 +170,9 @@ public class MinesweeperApplication extends Application {
                                     if (!result) {
                                         refreshBoard(scene, game, baseStyle);
                                     } else {
-                                        System.out.println("you lost");
+                                        game.setGameOngoing(false);
+                                        game.setResult("Loss");
+                                        finishMessage(game, mainLabel);
                                     }
 
                                 }
@@ -186,6 +202,12 @@ public class MinesweeperApplication extends Application {
                 }
             }
         }
+    }
+    public void finishMessage(MinesweeperGame game, Label mainLabel) {
+        int minutes = (int)seconds / 60;
+        int sec = (int)seconds % 60;
+        mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left - " + game.getResult());
+
     }
 
     public static void main(String[] args) {

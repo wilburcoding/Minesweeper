@@ -7,11 +7,13 @@ public class MinesweeperGame {
     private int mineCount;
     private int size;
     private boolean gameOngoing;
+    private String result;
     public MinesweeperGame(int size) {
         board = new MinesweeperCell[size][size];
         mineCount = 0;
         this.size = size;
         gameOngoing = false;
+        result = "";
     }
 
     public int getMineCount() {
@@ -22,6 +24,7 @@ public class MinesweeperGame {
         mineCount = 0;
         this.size = size;
         gameOngoing = false;
+        result = "";
 
     }
     public MinesweeperCell[][] getBoard() {
@@ -256,4 +259,13 @@ public class MinesweeperGame {
         }
         return getMineLeft() == 0;
     }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
 }

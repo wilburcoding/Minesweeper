@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Finish game win algorithm">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/wilburcoding/minesweeper/main-view.fxml" afterDir="false" />
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Remove redundant text attribute in the main-view.fxml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +113,7 @@
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
       <workItem from="1717356364013" duration="13433000" />
-      <workItem from="1717446044084" duration="3367000" />
+      <workItem from="1717446044084" duration="3629000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -361,15 +363,29 @@
       <option name="project" value="LOCAL" />
       <updated>1717453378925</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Disable start button during ongoing games">
+      <option name="closed" value="true" />
+      <created>1717453599400</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717453599400</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Remove redundant text attribute in the main-view.fxml">
+      <option name="closed" value="true" />
+      <created>1717453639962</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1717453639962</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix some styling and actually create game layout" />
-    <MESSAGE value="Asynchronously update UI to create game UI" />
     <MESSAGE value="Fix some styling for the UI to make it look much better" />
     <MESSAGE value="Create base for game classes" />
     <MESSAGE value="Add additional methods for the cell class" />
@@ -393,7 +409,9 @@
     <MESSAGE value="Finish adding difficulty functionality to the game" />
     <MESSAGE value="Adjust font size based on cell size" />
     <MESSAGE value="Finish game win algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish game win algorithm" />
+    <MESSAGE value="Disable start button during ongoing games" />
+    <MESSAGE value="Remove redundant text attribute in the main-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove redundant text attribute in the main-view.fxml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
