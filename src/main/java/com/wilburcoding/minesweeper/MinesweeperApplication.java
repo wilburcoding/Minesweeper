@@ -182,6 +182,9 @@ public class MinesweeperApplication extends Application {
 
                                 }
                             }
+                            if (game.getBoard()[finalI][finalJ].getState() == MinesweeperState.FOUND && game.getBoard()[finalI][finalJ].getCountMines() > 0) {
+                                button.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[finalI][finalJ].getCountMines() - 1]));
+                            }
                         };
                         button.setOnMouseClicked(clickHandler);
                     }
@@ -204,6 +207,11 @@ public class MinesweeperApplication extends Application {
                 buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                 if (game.getBoard()[k][l].state == MinesweeperState.FOUND) {
                     buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                    if (game.getBoard()[k][l].getCountMines() > 0) {
+                        buttonChange.setTextFill(Color.valueOf(AMT_COLORS[game.getBoard()[k][l].getCountMines() - 1]));
+
+                    }
+
                 } else if (game.getBoard()[k][l].getState() == MinesweeperState.FLAGGED) {
                     buttonChange.setTextFill(Color.valueOf("e53400"));
                 }
