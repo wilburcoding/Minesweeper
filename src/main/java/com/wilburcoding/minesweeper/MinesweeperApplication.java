@@ -25,7 +25,9 @@ import java.io.IOException;
 
 public class MinesweeperApplication extends Application {
     final String[] AMT_COLORS = {"#1976d2", "#3a8e3d", "#d33433", "#7b1fa2", "#fd9004", "#0197a6", "#424242", "#D9D9D9"};
-    public double seconds = 1;
+    private double seconds = 1;
+    private String baseStyle = "";
+
 
     @Override
     @SuppressWarnings("unchecked")
@@ -52,7 +54,7 @@ public class MinesweeperApplication extends Application {
                                 if (game.checkWin()) {
                                     start.setDisable(false);
                                     game.setGameOngoing(false);
-                                    finishMessage(game, mainLabel);
+                                    finishMessage(game, mainLabel, scene, baseStyle);
 
                                 }
 
@@ -107,7 +109,7 @@ public class MinesweeperApplication extends Application {
                     for (int j = 0; j < game.getSize(); j++) {
                         final Button button = (Button) scene.lookup("#" + i + "," + j);
                         button.setText(game.getBoard()[i][j].toString());
-                        String baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: " + fontsize + ";-fx-font-weight: 900;";
+                        baseStyle = "-fx-padding:0;-fx-background-radius: 0;-fx-border-color: black;-fx-border-width:0;-fx-font-size: " + fontsize + ";-fx-font-weight: 900;";
                         button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                         if (game.getBoard()[i][j].getState() == MinesweeperState.FOUND) {
                             button.setStyle(baseStyle + "-fx-background-color: " + ((i + j) % 2 == 0 ? "#e5c29f" : "#d6b899"));
@@ -126,14 +128,14 @@ public class MinesweeperApplication extends Application {
                             if (game.checkWin()) {
                                 game.setGameOngoing(false);
                                 game.setResult("Win");
-                                finishMessage(game, mainLabel);
+                                finishMessage(game, mainLabel, scene, baseStyle);
 
                             }
                             if (click.getButton() == MouseButton.PRIMARY) {
                                 if (cell.isMine()) {
                                     game.setGameOngoing(false);
                                     game.setResult("Loss");
-                                    finishMessage(game, mainLabel);
+                                    finishMessage(game, mainLabel, scene, baseStyle);
 
                                 } else {
                                     if (cell.getState() != MinesweeperState.FOUND) {
@@ -172,7 +174,7 @@ public class MinesweeperApplication extends Application {
                                     } else {
                                         game.setGameOngoing(false);
                                         game.setResult("Loss");
-                                        finishMessage(game, mainLabel);
+                                        finishMessage(game, mainLabel, scene, baseStyle);
                                     }
 
                                 }
@@ -199,14 +201,18 @@ public class MinesweeperApplication extends Application {
                 buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#a9d751" : "#a1cf48"));
                 if (game.getBoard()[k][l].state == MinesweeperState.FOUND) {
                     buttonChange.setStyle(baseStyle + "-fx-background-color: " + ((k + l) % 2 == 0 ? "#e5c29f" : "#d6b899"));
+                } else if (game.getBoard()[k][l].getState() == MinesweeperState.FLAGGED) {
+                    buttonChange.setTextFill(Color.valueOf("e53400"));
                 }
             }
         }
     }
-    public void finishMessage(MinesweeperGame game, Label mainLabel) {
+    public void finishMessage(MinesweeperGame game, Label mainLabel, Scene scene, String baseStyle) {
         int minutes = (int)seconds / 60;
-        int sec = (int)seconds % 60;
+        int sec = (int) seconds % 60;
         mainLabel.setText(minutes + ":" + (sec < 10 ? "0" : "") + sec + " - " + game.getMineLeft() + " flags left - " + game.getResult());
+        game.fillBoard();
+        refreshBoard(scene, game, baseStyle);
 
     }
 

@@ -267,5 +267,16 @@ public class MinesweeperGame {
     public String getResult() {
         return result;
     }
+    public void fillBoard() {
+        //Fill board at the end to view answers
+        for (MinesweeperCell[] minesweeperCells : board) {
+            for (int y = 0; y < board.length; y++) {
+                MinesweeperCell cell = minesweeperCells[y];
+                if (cell.isMine()) {
+                    cell.setState(MinesweeperState.FLAGGED);
+                }
+            }
+        }
+    }
 
 }
