@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Allow game to restart after one game ends">
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Fix styling issues associated with changing cell states">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wilburcoding/minesweeper/MinesweeperApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +64,11 @@
     &quot;Application.Minesweeper.executor&quot;: &quot;Run&quot;,
     &quot;Application.MinesweeperApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilbu/Downloads&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilbu/IdeaProjects/Minesweeper&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,7 +77,8 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15039062&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.38319907&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;flutter.settings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -112,7 +113,12 @@
       <workItem from="1717193524656" duration="4798000" />
       <workItem from="1717270306093" duration="7349000" />
       <workItem from="1717356364013" duration="13433000" />
-      <workItem from="1717446044084" duration="5149000" />
+      <workItem from="1717446044084" duration="7175000" />
+      <workItem from="1717866015300" duration="107000" />
+      <workItem from="1717866137802" duration="1403000" />
+      <workItem from="1717883055767" duration="161000" />
+      <workItem from="1717972056555" duration="541000" />
+      <workItem from="1718064085374" duration="369000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -410,14 +416,21 @@
       <option name="project" value="LOCAL" />
       <updated>1717527255755</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Fix styling issues associated with changing cell states">
+      <option name="closed" value="true" />
+      <created>1717528229167</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717528229167</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finish initial board generation" />
     <MESSAGE value="Add event handlers to cells" />
     <MESSAGE value="Some coloring and more cell clicked functionality" />
     <MESSAGE value="Add more styling and finalize initial generation" />
@@ -442,7 +455,8 @@
     <MESSAGE value="Flag all mines upon game loss" />
     <MESSAGE value="Disable resizing of window / clear mainGame panel upon game start" />
     <MESSAGE value="Allow game to restart after one game ends" />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow game to restart after one game ends" />
+    <MESSAGE value="Fix styling issues associated with changing cell states" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix styling issues associated with changing cell states" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

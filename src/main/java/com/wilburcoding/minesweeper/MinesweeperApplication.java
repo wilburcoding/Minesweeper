@@ -38,7 +38,7 @@ public class MinesweeperApplication extends Application {
         stage.setResizable(false);
         ComboBox<String> difficultyBox = (ComboBox<String>) scene.lookup("#difficulty");
         ObservableList<String> difficultyList = FXCollections.observableArrayList(
-                "Easy", "Medium", "Hard");
+                "Easy", "Medium", "Hard", "Impossible");
         difficultyBox.setItems(difficultyList);
         difficultyBox.setValue("Medium");
         start = (Button) scene.lookup("#startButton");
@@ -78,6 +78,9 @@ public class MinesweeperApplication extends Application {
                     game.setBoard(10);
                     fontsize = 35;
 
+                } else if (value.equals("Impossible")){
+                    game.setBoard(25);
+                    fontsize = 14;
                 } else {
                     game.setBoard(15);
                     fontsize = 25;
