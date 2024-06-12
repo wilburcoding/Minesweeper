@@ -71,19 +71,20 @@ public class MinesweeperApplication extends Application {
                 mainLabel.setText("Loading...");
                 String value = difficultyBox.getValue();
                 int fontsize = 18;
-                if (value.equals("Hard")) {
-                    game.setBoard(20);
-
-                } else if (value.equals("Easy")) {
-                    game.setBoard(10);
-                    fontsize = 35;
-
-                } else if (value.equals("Impossible")){
-                    game.setBoard(25);
-                    fontsize = 14;
-                } else {
-                    game.setBoard(15);
-                    fontsize = 25;
+                switch (value) {
+                    case "Hard" -> game.setBoard(20);
+                    case "Easy" -> {
+                        game.setBoard(10);
+                        fontsize = 35;
+                    }
+                    case "Impossible" -> {
+                        game.setBoard(25);
+                        fontsize = 14;
+                    }
+                    default -> {
+                        game.setBoard(15);
+                        fontsize = 25;
+                    }
                 }
                 seconds = 0;
                 start.setDisable(true);
