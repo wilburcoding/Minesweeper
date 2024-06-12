@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Add &quot;impossible&quot; difficulty to the game">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6f10af77-81e9-4c7e-bf83-a0839bbbd820" name="Changes" comment="Possible fix for starting area bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +118,7 @@
       <workItem from="1717972056555" duration="541000" />
       <workItem from="1718064085374" duration="671000" />
       <workItem from="1718069198216" duration="56000" />
+      <workItem from="1718157459307" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -433,14 +432,21 @@
       <option name="project" value="LOCAL" />
       <updated>1718069071363</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Possible fix for starting area bug">
+      <option name="closed" value="true" />
+      <created>1718157664452</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1718157664452</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some coloring and more cell clicked functionality" />
     <MESSAGE value="Add more styling and finalize initial generation" />
     <MESSAGE value="Finish up styling issues and add numbering colors" />
     <MESSAGE value="Fix up more styling issues" />
@@ -465,7 +471,8 @@
     <MESSAGE value="Allow game to restart after one game ends" />
     <MESSAGE value="Fix styling issues associated with changing cell states" />
     <MESSAGE value="Add &quot;impossible&quot; difficulty to the game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add &quot;impossible&quot; difficulty to the game" />
+    <MESSAGE value="Possible fix for starting area bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Possible fix for starting area bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

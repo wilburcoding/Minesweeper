@@ -111,7 +111,7 @@ public class MinesweeperApplication extends Application {
                 game.generateInitialBoard();
                 for (int o = 0; o < 2; o++) {
                     for (int p = 0; p < 2;p++) {
-                        game.clearArea(game.getSize()/2 - 1 + o,  game.getSize()/2 - 1 + p);
+                        game.speedClear(game.getSize()/2 - 1 + o,  game.getSize()/2 - 1 + p);
 
                     }
                 }
