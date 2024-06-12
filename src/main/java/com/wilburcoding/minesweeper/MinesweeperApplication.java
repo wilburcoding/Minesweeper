@@ -109,7 +109,12 @@ public class MinesweeperApplication extends Application {
                     mainGame.getChildren().add(hbox);
                 }
                 game.generateInitialBoard();
-                game.clearArea(game.getSize()/2 - 1,  game.getSize()/2 - 1);
+                for (int o = 0; o < 2; o++) {
+                    for (int p = 0; p < 2;p++) {
+                        game.clearArea(game.getSize()/2 - 1 + o,  game.getSize()/2 - 1 + p);
+
+                    }
+                }
                 mainLabel.setText("0.00 - " + game.getMineCount() + " flags left");
                 for (int i = 0; i < game.getSize(); i++) {
                     for (int j = 0; j < game.getSize(); j++) {
